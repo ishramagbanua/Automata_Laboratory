@@ -1,0 +1,83 @@
+# ---------------------------------
+# Moore & Mealy Machine 
+# ---------------------------------
+
+
+#  MOORE MACHINE
+# States: A/0, B/1, C/1
+# Transitions:
+# A: 0->A, 1->B
+# B: 0->C, 1->B
+# C: 0->A, 1->B
+
+moore_transitions = {
+    'A': {'0': 'A', '1': 'B'},
+    'B': {'0': 'C', '1': 'B'},
+    'C': {'0': 'A', '1': 'B'}
+}
+
+moore_outputs = {
+    'A': '0',
+    'B': '1',
+    'C': '1'
+}
+
+def moore_machine(input_string):
+    print("\n=== MOORE MACHINE ===")
+    state = 'A'
+    output = moore_outputs[state]
+    print(f"Start at state: {state} (Output: {moore_outputs[state]})")
+
+    for symbol in input_string:
+        if symbol not in ('0', '1'):
+            print("Invalid input symbol detected.")
+            return
+        next_state = moore_transitions[state][symbol]
+        out = moore_outputs[next_state]
+        print(f"Input: {symbol} | {state} → {next_state} | Output: {out}")
+        output += out
+        state = next_state
+
+    print(f"Final output: {output}\n")
+    return output
+
+
+
+# MEALY MACHINE
+# Prints 'a' whenever '01' occurs
+# A: 0->A/b, 1->B/b
+# B: 0->C/a, 1->B/b
+# C: 0->A/b, 1->B/b
+
+mealy_transitions = {
+    'A': {'0': ('A', 'b'), '1': ('B', 'b')},
+    'B': {'0': ('C', 'a'), '1': ('B', 'b')},
+    'C': {'0': ('A', 'b'), '1': ('B', 'b')}
+}
+
+def mealy_machine(input_string):
+    print("\n=== MEALY MACHINE ===")
+    state = 'A'
+    output = ''
+    print(f"Start at state: {state}")
+
+    for symbol in input_string:
+        if symbol not in ('0', '1'):
+            print("Invalid input symbol detected.")
+            return
+        next_state, out = mealy_transitions[state][symbol]
+        print(f"Input: {symbol} | {state} → {next_state} | Output: {out}")
+        output += out
+        state = next_state
+
+    print(f"Final output: {output}\n")
+    return output
+
+
+# -------------------------------
+# RUN BOTH MACHINES
+# -------------------------------
+if _name_ == "_main_":
+    binary_input = input("Enter binary input: ")
+    moore_machine(binary_input)
+    mealy_machine(binary_input)
