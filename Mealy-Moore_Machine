@@ -2,7 +2,6 @@
 # Moore & Mealy Machine 
 # ---------------------------------
 
-
 #  MOORE MACHINE
 # States: A/0, B/1, C/1
 # Transitions:
@@ -42,7 +41,6 @@ def moore_machine(input_string):
     return output
 
 
-
 # MEALY MACHINE
 # Prints 'a' whenever '01' occurs
 # A: 0->A/b, 1->B/b
@@ -77,7 +75,8 @@ def mealy_machine(input_string):
 # -------------------------------
 # RUN BOTH MACHINES
 # -------------------------------
-if _name_ == "_main_":
+if __name__ == "__main__":
     binary_input = input("Enter binary input: ")
     moore_machine(binary_input)
     mealy_machine(binary_input)
+
