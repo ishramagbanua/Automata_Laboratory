@@ -20,7 +20,7 @@ Write the code for the converted Moore Machine that can process the following in
 
 ---
 
-### 🧠 Moore Machine Simulation
+###  Moore Machine Simulation
 ```python
 # ---------------------------------
 # Moore Machine Simulation
