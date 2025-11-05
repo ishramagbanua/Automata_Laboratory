@@ -52,4 +52,12 @@ for inp in inputs:
     print(f"{inp}  →  {process(inp)}")
 
 
+#Output
+Input   →  Output
+00110   →  AABBBB
+11001   →  ABBABB
+1010110 →  ABBABBBB
+1011111 →  ABBBBCBB
+
+
 
